@@ -10,7 +10,7 @@ function Respond(res, _code, result){
     })
 }
 
-function ErrRespond(res, _codde, msg){
+function ErrRespond(res, _code, msg){
     res.status(_code).json({
         code: _code,
         msg
