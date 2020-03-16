@@ -1,19 +1,16 @@
 import React from 'react';
-import Navbar from './Components/Nevbar/Navbar'
 import Home from './Views/Home/home'
 import { Layout } from 'antd';
-const { Header, Footer, Sider, Content } = Layout;
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css'
+const { Footer, Content } = Layout;
 function App() {
   return (
-    <div>
-      <Header>
-        <Navbar/>
-      </Header>
+    <div >
       <Content>
         <Home />
       </Content>
       <Footer>
-        
       </Footer>
     </div>
   );

@@ -1,10 +1,21 @@
 import React, { Component } from "react"
 import { Row, Col, Button, Input, Card,Upload, Icon, message,notification } from 'antd'
 import { Container } from 'reactstrap';
-import Slider from '../../Components/Slider/Slider'
+import Navbar from '../../Components/Nevbar/Navbar'
 import { getPhotoDB } from '../../Services/API'
 import '../../App.css'
+import SlideShow from '../../Components/Slider/SlideShow'
+import Background from '../../img/background/background.jpg'
 
+var bgStyle = {
+    backgroundImage: `url(${Background})`,
+    width: '100%',
+    height: '550px',
+    backgroundSize: 'cover',
+    boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'
+  };
+
+  
 export default class home extends Component {
     constructor(props) {
         super(props);
@@ -20,40 +31,63 @@ export default class home extends Component {
                 "html.png",
                 "nodejs.png",
                 "nodejs.png"
-            ]
+            ],
+            photoProfile: ''
         }
     }
-    
-    // componentWillMount() {
-    //     this.getDB()
-    // }
-
-    // getDB = async () => {
-    //     let resp = await getPhotoDB()
-    //     if(resp.code === 200) {
-    //         this.setState({
-    //           photoDB: "test"
-    //         })
-    //       }else{
-    //         message.error('can\'t connect to server')
-    //     }
-    // }
     render(){
-        const images = [
-            'https://images.unsplash.com/photo-1449034446853-66c86144b0ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80',
-            'https://images.unsplash.com/photo-1470341223622-1019832be824?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2288&q=80',
-            'https://images.unsplash.com/photo-1448630360428-65456885c650?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2094&q=80',
-            'https://images.unsplash.com/photo-1534161308652-fdfcf10f62c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2174&q=80',
-          ]
         return(
-            <div>
-                <Card style={{padding:'50px 50px', backgroundColor: 'rgba(150, 70, 255, 255)', width: 'auto', height: '550px'}}>
+            <div className='content'>
+                <Card style={bgStyle}>
+                    <Navbar/>
                 </Card>
-                <Container fluid style={{padding:'0px 50px'}}>
-                    <Card style={{padding:'0px 50px', backgroundColor: 'rgba(255, 255, 50, 255)', width: 'auto', height: '600px'}}>
-                        <h1>ABOUT ME</h1>
+                <Container style={{borderRadius: '10px', padding: '0px 0px', backgroundColor: 'rgba(f, f, 50, 255)', margin: "-80px auto auto auto", boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'}}>
+                    <Card style={{padding:'0px 50px', backgroundColor: 'rgba(f, f, 50, 255)', width: 'auto', height: '600px'}}>
+                        <h1>About Me</h1>
+                        <Row style={{width: '100%', height: '100%'}}>
+                            <Card style={{width: '30%', height: '470px', borderRadius: '10px', padding: '0px 0px', backgroundColor: 'rgba(15, 255, 50, 255)'}}>
+                                <Col>
+                                    <Card style={{width: '75%', height: '200px', left: '12%'}}>
+                                        image profile
+                                    </Card>
+                                    <Card style={{width: '100%', height: '200px', top: '15px'}}>
+                                        image profile
+                                    </Card>
+                                </Col>
+                            </Card>
+                            <Col style={{width: '65%', height: '100%'}}>
+                                <Row >
+                                    <Card style={{width: '100%', height: '225px', borderRadius: '10px', left: '58px', backgroundColor: 'rgba(15, 255, 50, 255)'}}>
+                                        Education
+                                        <Card style={{width: '100%', height: '100%'}}>
+                                            Detail
+                                        </Card>
+                                    </Card>
+                                </Row>
+                                <Row >
+                                    <Card style={{top: '22px', width: '100%', height: '225px', borderRadius: '10px', left: '58px', backgroundColor: 'rgba(15, 255, 50, 255)'}}>
+                                        Contact
+                                        <Col>
+                                            <Row>
+                                                <Card style={{width: '48%', height: '100%'}}>
+                                                    Detail
+                                                </Card>
+                                                <Card style={{width: '48%', height: '100%', left: '23px'}}>
+                                                    Detail
+                                                </Card>
+                                            </Row>
+                                            {/* <Row>
+                                                <Card style={{width: '100%', height: '100%', top: '15px'}}>
+                                                    Detail
+                                                </Card>
+                                            </Row> */}
+                                        </Col>
+                                    </Card>
+                                </Row>
+                            </Col>
+                        </Row>
                     </Card>
-                    <Card style={{padding:'0px 50px', backgroundColor: 'rgba(111, 120, 150, 200)', width: 'auto', height: '600px'}}>
+                    <Card style={{padding:'0px 50px', backgroundColor: 'rgba(f, f, 50, 255)', width: 'auto', height: '600px'}}>
                         <h1>SKILLS</h1>
                         <Row>
                             <Col className='col' span={7}>
@@ -115,13 +149,13 @@ export default class home extends Component {
                             </Col>
                         </Row>
                     </Card>
-                    <Card style={{padding:'0px 50px', backgroundColor: 'rgba(120, 150, 50, 255)', width: 'auto', height: '600px'}}>
+                    <Card style={{padding:'0px 50px', backgroundColor: 'rgba(f, f, 50, 255)', width: 'auto', height: '600px'}}>
                         <h1>EXPERIENCE</h1>
                     </Card>
-                    <Card style={{padding:'0px 50px', backgroundColor: 'rgba(10, 255, 50, 255)', width: 'auto', height: '600px'}}>
+                    <Card style={{padding:'0px 50px', backgroundColor: 'rgba(f, f, 50, 255)', width: 'auto', height: '600px'}}>
                         <h1>PHOTO</h1>
-                        <Slider style={{ width: '100%', height: '100%'}} slides={images}/>
-                    </Card>
+                        <SlideShow />
+                    </Card> 
                 </Container>
             </div>
         )
